@@ -1,0 +1,21 @@
+You have a GroceryApp class, which receives a list of products, 
+each one with name and votes. The app should render an unordered list,
+ with a list item for each product. Products can be upvoted or downvoted.
+
+ 
+
+By appropriately using React state and props, implement the upvote/downvote logic.
+ Keep the state in the topmost component, while the Product component should accept props.
+
+ 
+
+Consider that there is a node service which serves you endpoint for list of products 
+(GET /products) and update votes (POST /upvote, POST /downvote).
+
+ 
+
+Note: Code should be neat and clean
+
+      There should be proper setup so that anybody can run the application by single line command
+
+      There should some sample for test cases

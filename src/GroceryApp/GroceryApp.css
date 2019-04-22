@@ -1,0 +1,12 @@
+.app-header{
+    text-align: center;
+
+}
+.grocery-list{
+    max-width:600px ;
+    margin: 0 auto;
+}
+.vote-details{
+    position: absolute;
+    right: 5px;
+}
