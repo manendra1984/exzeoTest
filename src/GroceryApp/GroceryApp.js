@@ -9,45 +9,39 @@ class GroceryApp extends Component {
       products: []
     };
   }
-  downVoteClickHandler = (num, pid) => {
-    let self = this;
-    if(num > 0 ){
-       axios
-      .put(`https://5cbabab23ba98700147dcdea.mockapi.io/products/${pid}`, {
-        downvote: num - 1
-      })
-      .then(function() {
-        let items = [...self.state.products];
-        items.map(function(obj) {
-          if (obj.id === pid) {
-            obj.downvote--;
-            return obj;
-          }
+ downVoteClickHandler = (num, pid) => {
+    if (num > 0) {
+      axios
+        .put(`https://5cbabab23ba98700147dcdea.mockapi.io/products/${pid}`, {
+          downvote: num - 1
+        })
+        .then(() => {
+          this.state.products.map(function(obj) {
+            if (obj.id === pid) {
+              obj.downvote--;
+              return obj;
+            }
+          });
+
+          this.setState({ products: this.state.products });
         });
-       
-        self.setState({ products: items });
-      });
     }
   };
 
   upVoteClickHandler = (num, pid) => {
-    let self = this;
-   
     axios
       .put(`https://5cbabab23ba98700147dcdea.mockapi.io/products/${pid}`, {
         upvote: num + 1
       })
-      .then(function() {
-        let items = [...self.state.products];
-        items.map(function(obj) {
+      .then(() => {
+        this.state.products.map(function(obj) {
           if (obj.id === pid) {
             obj.upvote++;
             return obj;
           }
         });
-        self.setState({ products: items });
+        this.setState({ products: this.state.products });
       });
-    
   };
 
   componentDidMount() {
